@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <center>Calculator</center>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="display" class="form-control mb-3" readonly>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('7')">7</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('8')">8</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('9')">9</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger btn-block" onclick="addToDisplay('+')">+</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('4')">4</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('5')">5</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('6')">6</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger btn-block" onclick="addToDisplay('-')">-</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('1')">1</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('2')">2</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('3')">3</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger btn-block" onclick="addToDisplay('*')">*</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-secondary btn-block" onclick="clearDisplay()">C</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block" onclick="addToDisplay('0')">0</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success btn-block" onclick="calculateResult()">=</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger btn-block" onclick="addToDisplay('/')">/</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript functions for the calculator
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
